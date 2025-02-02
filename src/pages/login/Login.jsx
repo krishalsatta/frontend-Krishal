@@ -47,10 +47,9 @@ const Login = () => {
     e.preventDefault();
     if (!validate()) return;
 
-    const data = { email, password }; // Password is sent as plain text here
-
+    const data = { email, password }; 
     try {
-      const res = await loginApi(data); // Make sure loginApi sends the plain password
+      const res = await loginApi(data);
       if (res.data.success) {
         toast.success(res.data.message);
         localStorage.setItem("token", res.data.token);
