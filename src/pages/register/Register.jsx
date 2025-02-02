@@ -35,7 +35,7 @@ const Register = () => {
   };
 
   const changePhoneNumber = (e) => {
-    const value = e.target.value.replace(/\D/g, ""); // Only allow digits
+    const value = e.target.value.replace(/\D/g, "");
     setPhoneNumber(value);
     if (errors.phoneNumber) {
       setErrors((prevErrors) => ({ ...prevErrors, phoneNumber: "" }));
