@@ -1,8 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import { verifyEmailApi } from '../../Apis/Api'; // Ensure this API call is implemented
-
+import { verifyEmailApi } from '../../Apis/Api'; 
 const VerifyEmail = () => {
   const { code } = useParams();
   const [loading, setLoading] = useState(true);
