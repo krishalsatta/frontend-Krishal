@@ -5,7 +5,7 @@ import Slide3 from "../../assets/images/slide3.png"
 
 
 const Slider = () => {
-  const slideInterval = 5000; // 5 seconds
+  const slideInterval = 7000; // 7 seconds
   const slidesData = [
     { src: Slide1, alt: 'Slide 1' },
     { src: Slide2, alt: 'Slide 2' },
