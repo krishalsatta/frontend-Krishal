@@ -5,7 +5,6 @@ import call from "../../assets/icons/call.png"
 import AllProduct from '../component/AllProduct'
 import { useParams } from 'react-router-dom'
 import { getProductDetailById } from '../../Apis/Api'
-// import GoogleMapBox from '../component/GoogleMapBox'
 
 const ProductDetail = ({ product }) => {
     console.log('Product:', product);
@@ -25,9 +24,7 @@ useEffect(()=>{
 fetchProductData()
 },[productId])
 
-    // if (!product) {
-    //     return <div>Loading...</div>; 
-    //   }
+
     return (
         <>
    
@@ -90,7 +87,6 @@ fetchProductData()
 
                         </div>
                         <div className="maps bg-gray-200 rounded-md  p-5 mt-3">
-{/* <GoogleMapBox/>                             */}
                         </div>
                     </div>
                 </div>
