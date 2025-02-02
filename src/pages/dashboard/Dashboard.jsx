@@ -1,19 +1,18 @@
 import React, { useEffect, useState } from "react";
+import { Fade } from "react-slideshow-image";
+import "react-slideshow-image/dist/styles.css";
+import { getProductByCategoryApi } from "../../Apis/Api"; // Import getProductByCategoryApi
+import all from "../../assets/images/all.jpg";
+import electronic from "../../assets/images/food.jpg";
+import automobile from "../../assets/images/drink.jpg";
 import img1 from "../../assets/images/slide1.png";
+import Automobile from "../Drinks/drinks";
 import AddBtn from "../component/AddBtn";
 import AllProduct from "../component/AllProduct";
-import ElectronicProduct from "../Electronic/ElectronicProduct";
-import { getProductByCategoryApi } from "../../Apis/Api"; // Import getProductByCategoryApi
-import Automobile from "../Automobile/Automobile";
-import { Fade } from 'react-slideshow-image';
-import 'react-slideshow-image/dist/styles.css';
-import all from "../../assets/images/all.jpg"
-import electronic from "../../assets/images/electronic.jpg"
-import automobile from "../../assets/images/automobile.jpg"
+import ElectronicProduct from "../Food/Foods";
 
-import img2 from "../../assets/images/slide2.png"
-import img3 from "../../assets/images/slide3.png"
-
+import img2 from "../../assets/images/slide2.png";
+import img3 from "../../assets/images/slide3.png";
 
 const Dashboard = () => {
   const [selectedCategory, setSelectedCategory] = useState("All"); // State to store selected category
@@ -23,11 +22,7 @@ const Dashboard = () => {
     // Fetch all products initially
     fetchProducts("All");
   }, []);
-  const fadeImages = [
-    { url: img1 },
-    { url: img2 },
-    { url: img3 }
-  ];
+  const fadeImages = [{ url: img1 }, { url: img2 }, { url: img3 }];
 
   const fetchProducts = (category) => {
     getProductByCategoryApi(category) // Fetch products based on category
@@ -51,16 +46,19 @@ const Dashboard = () => {
   return (
     <>
       <div className="dashboard-main w-full">
-
         <div className="dashboard-img w-full h-full bg-gray-100 p-3">
           <div className="slide-container">
-          <Fade in={true}>
-      {fadeImages.map((fadeImage, index) => (
-        <div key={index}>
-          <img src={fadeImage.url} className="w-full lg:h-[300px] h-[200px] md:h-[300px] rounded-lg static" alt={`fade-image-${index}`} />
-        </div>
-      ))}
-    </Fade>
+            <Fade in={true}>
+              {fadeImages.map((fadeImage, index) => (
+                <div key={index}>
+                  <img
+                    src={fadeImage.url}
+                    className="w-full lg:h-[300px] h-[200px] md:h-[300px] rounded-lg static"
+                    alt={`fade-image-${index}`}
+                  />
+                </div>
+              ))}
+            </Fade>
           </div>
           <div className="relative bottom-[10px] pl-3 right-0 mr-10 mb-4 mt-[-50px] ">
             <AddBtn />
@@ -74,7 +72,9 @@ const Dashboard = () => {
             <hr />
             <div className="catego-img flex gap-4">
               <div
-                className={`catego pt-3 ${selectedCategory === "All" && "active"}`}
+                className={`catego pt-3 ${
+                  selectedCategory === "All" && "active"
+                }`}
                 onClick={() => handleCategoryClick("All")}
               >
                 <img
@@ -85,7 +85,9 @@ const Dashboard = () => {
                 <p className="font-bold">All</p>
               </div>
               <div
-                className={`catego pt-3 ${selectedCategory === "Electronic" && "active"}`}
+                className={`catego pt-3 ${
+                  selectedCategory === "Electronic" && "active"
+                }`}
                 onClick={() => handleCategoryClick("Electronic")}
               >
                 <img
@@ -93,10 +95,12 @@ const Dashboard = () => {
                   alt="electronic"
                   className="h-[80px] w-[80px] rounded-md "
                 />
-                <p className="font-bold">Electronic</p>
+                <p className="font-bold">Food</p>
               </div>
               <div
-                className={`catego pt-3 ${selectedCategory === "Automobile" && "active"}`}
+                className={`catego pt-3 ${
+                  selectedCategory === "Automobile" && "active"
+                }`}
                 onClick={() => handleCategoryClick("Automobile")}
               >
                 <img
@@ -104,15 +108,23 @@ const Dashboard = () => {
                   alt="automobile"
                   className="h-[80px] w-[80px] rounded-md"
                 />
-                <p className="font-bold">Automobile</p>
+                <p className="font-bold">Drinks</p>
               </div>
             </div>
           </div>
         </div>
         <AllProduct />
 
-        <ElectronicProduct products={filteredProducts.filter(product => product.category === "Electronic")} />
-        <Automobile products={filteredProducts.filter(product => product.category === "Automobile")} />
+        <ElectronicProduct
+          products={filteredProducts.filter(
+            (product) => product.category === "Electronic"
+          )}
+        />
+        <Automobile
+          products={filteredProducts.filter(
+            (product) => product.category === "Automobile"
+          )}
+        />
       </div>
     </>
   );
