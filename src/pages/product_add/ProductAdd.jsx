@@ -501,7 +501,7 @@ const ProductAdd = () => {
                       Edit
                     </button>
                     <button
-                      onClick={() => handelDeleteBtn(product._id)} // Pass productId as a parameter
+                      onClick={() => handelDeleteBtn(product._id)} 
                       type="button"
                       className="inline-flex w-full justify-center rounded-md gap-2 align-center bg-red-500 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-400 sm:ml-3 sm:w-auto"
                     >
