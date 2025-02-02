@@ -1,10 +1,9 @@
-import React, { useState, useEffect, useRef } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { Fragment } from "react";
 import { Menu, Transition } from "@headlessui/react";
-import profile from "../../assets/images/p.png";
+import React, { Fragment, useEffect, useRef, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { searchProductApi } from "../../Apis/Api";
-import sec from "../../assets/images/second.png";
+import profile from "../../assets/images/p.png";
+import sec from "../../assets/images/WZ.png";
 import AddBtn from "./AddBtn";
 
 function classNames(...classes) {
@@ -83,7 +82,9 @@ const Navbar = () => {
         <div className="container flex justify-between items-center pt-1 px-2">
           <Link to="/dashboard" className="logo flex gap-2 align-middle">
             <img src={sec} alt="logo" className="lg:h-[40px] h-[24px]" />
-            <h1 className="lg:text-[22px] font-bold text-gray-700 lg:block hidden">Second</h1>
+            <h1 className="lg:text-[22px] font-bold text-gray-700 lg:block hidden">
+              Waste Zero
+            </h1>
           </Link>
           <div className="align-middle">
             {user ? (
@@ -119,7 +120,7 @@ const Navbar = () => {
                         type="search"
                         id="default-search"
                         className="block mt-2 p-4 ps-10 text-sm h-[35px] w-[400px] text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        placeholder="Search Electronic, machines..."
+                        placeholder="Search Foods and Drinks "
                         onChange={(event) => setQuery(event.target.value)}
                         required
                       />
