@@ -56,6 +56,6 @@ export const updateLoggedInUserDetail = (data) => Api.patch(`/api/user/updateUse
 export const deleteProductApi = (productId) => Api.delete(`/api/product/deleteProduct/${productId}`);
 export const getProductByCategoryApi = (category) => Api.get(`/api/product/getProductByCategory/${category}`);
 // forgot password
+
 export const forgotPasswordApi = (data) =>Api.post("/api/user/forgot/password", data);
 export const resetPasswordApi = (data, token) =>Api.put(`/api/user/password/reset/${token}`, data);
-// export const getProductApi =(id)=>Api.get(`/api/product/get_product/${id}`)
