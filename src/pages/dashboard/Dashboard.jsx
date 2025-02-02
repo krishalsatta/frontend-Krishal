@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Fade } from "react-slideshow-image";
 import "react-slideshow-image/dist/styles.css";
-import { getProductByCategoryApi } from "../../Apis/Api"; // Import getProductByCategoryApi
+import { getProductByCategoryApi } from "../../Apis/Api"; 
 import all from "../../assets/images/all.jpg";
 import electronic from "../../assets/images/food.jpg";
 import automobile from "../../assets/images/drink.jpg";
@@ -19,7 +19,6 @@ const Dashboard = () => {
   const [filteredProducts, setFilteredProducts] = useState([]); // State to store filtered products
 
   useEffect(() => {
-    // Fetch all products initially
     fetchProducts("All");
   }, []);
   const fadeImages = [{ url: img1 }, { url: img2 }, { url: img3 }];
