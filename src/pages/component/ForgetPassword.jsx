@@ -22,7 +22,6 @@ export default function ForgetPassword() {
     const data = {
       email: email,
     };
-    // Rename the inner function to something else
     forgotPasswordApi(data)
       .then((res) => {
         if (res.data.success == true) {
